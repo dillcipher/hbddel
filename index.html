@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Putri</title>
+    <style>
+        body {
+            background-color: #f8c8dc;
+            color: #5a3d3d;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            position: relative;
+            overflow-x: hidden;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .envelope {
+            position: relative;
+            width: 250px;
+            height: 180px;
+            background: #ffebcd;
+            border-radius: 5px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: #e4c1b9;
+            clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+            transition: transform 0.6s ease-in-out;
+            transform-origin: top;
+            z-index: 3;
+        }
+        .letter {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) translateY(100%);
+            width: 90%;
+            height: 60%;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.6s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #5a3d3d;
+            z-index: 2;
+        }
+        .envelope.open .flap {
+            transform: rotateX(180deg);
+        }
+        .envelope.open .letter {
+            transform: translateX(-50%) translateY(-30%);
+        }
+        .next-button {
+            display: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #ffebcd;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #5a3d3d;
+        }
+        .show-button {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="envelope" id="envelope">
+            <div class="flap"></div>
+            <div class="letter">Happy Birthday Putri Irmadel Lestari  AKA wanita tercantik, terbaik, tersexy, dan yang segalanya bagi aku! ❤️</div>
+        </div>
+        <button class="next-button" id="nextButton" onclick="location.href='photo page.html'">lanjut?</button>
+    </div>
+    <script>
+        document.getElementById('envelope').addEventListener('click', function() {
+            this.classList.add('open');
+            setTimeout(() => {
+                document.getElementById('nextButton').classList.add('show-button');
+            }, 600);
+        });
+    </script>
+</body>
+</html>
